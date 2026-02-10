@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Profisee.BeSpokedBikes.Data;
 
@@ -11,9 +12,11 @@ using Profisee.BeSpokedBikes.Data;
 namespace Profisee.BeSpokedBikes.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260210052757_Update-2")]
+    partial class Update2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -287,9 +290,6 @@ namespace Profisee.BeSpokedBikes.API.Migrations
 
                     b.Property<string>("SaleId")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<double>("SoldPrice")
-                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

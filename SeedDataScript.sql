@@ -1,6 +1,6 @@
--- ======================
+-- ====================
 -- Addresses (20 rows)
--- ======================
+-- ====================
 INSERT INTO Addresses (Id, Line1, City, State, ZipCode, Country, CreatedDate)
 VALUES
 (NEWID(), '123 Main St', 'Oakland', 'AL', '62701', 'USA', GETDATE()),
@@ -25,9 +25,10 @@ VALUES
 (NEWID(), '888 Cottonwood Ln', 'Peoria', 'MD', '61615', 'USA', GETDATE());
 
 
--- ======================
+
+-- ========================
 -- Manufacturers (20 rows)
--- ======================
+-- ========================
 -- Use random AddressIds from Addresses
 INSERT INTO Manufacturers (Id, Name, AddressId, Phone, CreatedDate)
 VALUES
@@ -53,9 +54,10 @@ VALUES
 (NEWID(), 'FastPedal', (SELECT TOP 1 Id FROM Addresses ORDER BY NEWID()), '555-1019', GETDATE());
 
 
--- ======================
+
+-- ====================
 -- Customers (10 rows)
--- ======================
+-- ====================
 -- Use random AddressIds from Addresses
 INSERT INTO Customers (Id, FirstName, LastName, LoyaltyPoints, AddressId, PhoneNumber, StartDate, CreatedDate)
 VALUES
@@ -69,6 +71,7 @@ VALUES
 (NEWID(), 'Fiona', 'Garcia', 180, (SELECT TOP 1 Id FROM Addresses ORDER BY NEWID()), '555-2007', GETDATE(), GETDATE()),
 (NEWID(), 'George', 'Martinez', 220, (SELECT TOP 1 Id FROM Addresses ORDER BY NEWID()), '555-2008', GETDATE(), GETDATE()),
 (NEWID(), 'Hannah', 'Lopez', 95, (SELECT TOP 1 Id FROM Addresses ORDER BY NEWID()), '555-2009', GETDATE(), GETDATE());
+
 
 
 -- ======================
@@ -89,27 +92,29 @@ VALUES
 (NEWID(), 'Emma', 'Hall', (SELECT TOP 1 Id FROM Addresses ORDER BY NEWID()), '555-3009', GETDATE(), GETDATE());
 
 
--- ======================
+
+-- ===================
 -- Products (10 rows)
--- ======================
+-- ===================
 -- Use random ManufacturerIds from Manufacturers
-INSERT INTO Products (Id, Name, ManufacturerId, Style, PurchasePrice, SalePrice, QuantityOnHand, QuantityOnOrder, CommissionPercentage, CreatedDate)
+INSERT INTO Products (Id, Name, ManufacturerId, Style, PurchasePrice, SalePrice, QuantityOnHand, QuantityOnOrder, CommissionPercentage, Image, CreatedDate)
 VALUES
-(NEWID(), 'Crimson Comet', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 0, 500, 750, 10, 5, 10, GETDATE()),
-(NEWID(), 'The Marauder', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 1, 600, 900, 8, 4, 12, GETDATE()),
-(NEWID(), 'Simply Glide', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 2, 550, 825, 12, 6, 11, GETDATE()),
-(NEWID(), 'Trail Blazer', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 3, 300, 450, 15, 3, 10, GETDATE()),
-(NEWID(), 'Silver Streak', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 4, 400, 600, 7, 2, 9, GETDATE()),
-(NEWID(), 'Pedal Phantom', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 5, 1200, 1800, 5, 1, 15, GETDATE()),
-(NEWID(), 'Twilight', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 6, 700, 1050, 3, 1, 10, GETDATE()),
-(NEWID(), 'Velocity Viper', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 7, 650, 975, 4, 2, 12, GETDATE()),
-(NEWID(), 'EcoRider', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 8, 800, 1200, 6, 3, 10, GETDATE()),
-(NEWID(), 'Iron Horse', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 9, 450, 675, 9, 4, 11, GETDATE());
+(NEWID(), 'Crimson Comet', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 0, 500, 750, 10, 5, 0.1, 'Bike1.png', GETDATE()),
+(NEWID(), 'The Marauder', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 1, 600, 900, 8, 4, 0.12, 'Bike2.png', GETDATE()),
+(NEWID(), 'Simply Glide', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 2, 550, 825, 12, 6, 0.11, 'Bike3.png', GETDATE()),
+(NEWID(), 'Trail Blazer', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 3, 300, 450, 15, 3, 0.1, 'Bike4.png', GETDATE()),
+(NEWID(), 'Silver Streak', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 4, 400, 600, 7, 2, 0.9, 'Bike5.png', GETDATE()),
+(NEWID(), 'Pedal Phantom', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 5, 1200, 1800, 5, 1, 0.15, 'Bike6.png', GETDATE()),
+(NEWID(), 'Twilight', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 6, 700, 1050, 3, 1, 0.1, 'Bike7.png', GETDATE()),
+(NEWID(), 'Velocity Viper', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 7, 650, 975, 4, 2, 0.12, 'Bike8.png', GETDATE()),
+(NEWID(), 'EcoRider', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 8, 800, 1200, 6, 3, 0.1, 'Bike9.png', GETDATE()),
+(NEWID(), 'Iron Horse', (SELECT TOP 1 Id FROM Manufacturers ORDER BY NEWID()), 9, 450, 675, 9, 4, 0.11, 'Bike10.png', GETDATE());
 
 
--- ======================
+
+-- ================
 -- Sales (10 rows)
--- ======================
+-- ================
 -- Use random a Salesperson and Customer from Salespeople and Customers
 INSERT INTO Sales (Id, SalespersonId, CustomerId, SaleDate, CreatedDate)
 VALUES
@@ -125,9 +130,10 @@ VALUES
 (NEWID(), (SELECT TOP 1 Id FROM Salespeople ORDER BY NEWID()), (SELECT TOP 1 Id FROM Customers ORDER BY NEWID()), GETDATE(), GETDATE());
 
 
--- ======================
--- SaleProduct (30 rows)
--- ======================
+
+-- =======================
+-- SaleProducts (30 rows)
+-- =======================
 -- Use random a random Sale and Product from Sales and Products
 INSERT INTO SaleProduct (Id, SaleId, ProductId, Quantity, CreatedDate)
 VALUES
@@ -163,9 +169,10 @@ VALUES
 (NEWID(), (SELECT TOP 1 Id FROM Sales ORDER BY NEWID()), (SELECT TOP 1 Id FROM Products ORDER BY NEWID()), 3, GETDATE());
 
 
--- ======================
--- Discounts (10 rows)
--- ======================
+
+-- ===================
+-- Discounts (5 rows)
+-- ===================
 DECLARE @Now DATETIME2 = GETDATE();
 
 INSERT INTO Discounts
@@ -189,21 +196,17 @@ FROM
     VALUES
         (0.05),
         (0.1),
-        (0.15),
-        (0.2),
         (0.25),
-        (0.3),
-        (0.35),
-        (0.4),
-        (0.45),
+        (0.30),
         (0.5)
 ) v(DiscountPercentage)
 CROSS APPLY
 (
     SELECT TOP 1 Id
     FROM Products
-    ORDER BY NEWID()
+    ORDER BY NEWID(), v.DiscountPercentage
 ) p;
+
 
 
 -- ============================================
@@ -212,7 +215,7 @@ CROSS APPLY
 -- ============================================
 DECLARE @ManagerId NVARCHAR(450);
 
--- Assign me as the manager for everyone else
+-- Assign myself as the manager for everyone else
 DECLARE @ManagerFirstName NVARCHAR(100) = 'Matt';
 DECLARE @ManagerLastName  NVARCHAR(100) = 'Nwachukwu';
 
@@ -232,11 +235,11 @@ BEGIN
 END;
 
 
+
 -- ==========================================================
 -- Set CreateUserId based on a specific user (by name)
--- And align Sales / SaleProduct CreateUserId with Salesperson
+-- And map Sales / SaleProduct CreateUserId with Salesperson
 -- ==========================================================
-
 DECLARE @CreateUserId NVARCHAR(450);
 DECLARE @FirstName NVARCHAR(100) = 'Matt';
 DECLARE @LastName  NVARCHAR(100) = 'Nwachukwu';
@@ -250,6 +253,7 @@ WHERE FirstName = @FirstName
 -- Safety check
 IF @CreateUserId IS NOT NULL
 BEGIN
+    -- Map the CreateUserId on these tables to the specified user above
     UPDATE Addresses
     SET CreateUserId = @CreateUserId;
 
@@ -269,8 +273,7 @@ BEGIN
     SET CreateUserId = @CreateUserId;
 END;
 
--- Salesperson ID Tables
-
+-- Map CreatedUserId on Sales and SaleProducts to the Salesperson on the Sale
 UPDATE Sales
 SET CreateUserId = SalespersonId
 WHERE SalespersonId IS NOT NULL;
@@ -280,3 +283,15 @@ SET CreateUserId = s.SalespersonId
 FROM SaleProduct sp
 JOIN Sales s ON sp.SaleId = s.Id
 WHERE s.SalespersonId IS NOT NULL;
+
+
+
+-- =====================================================
+-- Set the sale price for each SaleProduct to the price
+-- listed in the Product table
+-- =====================================================
+UPDATE sp
+SET sp.SoldPrice = p.SalePrice
+FROM SaleProducts sp
+INNER JOIN Products p
+    ON p.Id = sp.ProductId;

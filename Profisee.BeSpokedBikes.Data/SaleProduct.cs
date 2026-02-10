@@ -7,12 +7,15 @@ namespace Profisee.BeSpokedBikes.Data
     /// </summary>
     public class SaleProduct : DbEntity
     {
-        [JsonIgnore] // to prevent a circular reference runtime error
-                     // since SalesProduct represents a relationship from Sales to Product, this nav property is not needed
+        [JsonIgnore] // This prevents a circular reference runtime error during JSON serialization.
+                     // Since SaleProduct models a relationship from Sale to Product, this nav property is
+                     // useful for EF tracking but should not be serialized.
         public Sale? Sale { get; set; }
 
         public Product? Product { get; set; }
 
         public int Quantity { get; set; }
+
+        public double SoldPrice { get; set; }
     }
 }
