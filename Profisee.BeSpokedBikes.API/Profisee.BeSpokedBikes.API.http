@@ -1,0 +1,6 @@
+@Profisee.BeSpokedBikes.API_HostAddress = http://localhost:5045
+
+GET {{Profisee.BeSpokedBikes.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
