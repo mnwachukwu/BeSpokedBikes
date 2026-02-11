@@ -54,8 +54,12 @@ namespace Profisee.BeSpokedBikes.API.Controllers
                     }
                     else
                     {
-                        _dbContext.Entry(salesperson.Manager).State = EntityState.Unchanged;
-                        _dbContext.Entry(salesperson.Manager?.Address).State = EntityState.Unchanged;
+                        if (salesperson.Manager != null)
+                        {
+                            // do not need to track/add the manager
+                            _dbContext.Entry(salesperson.Manager).State = EntityState.Unchanged;
+                        }
+
                         _dbContext.Salespeople.Add(salesperson);
                     }
 
