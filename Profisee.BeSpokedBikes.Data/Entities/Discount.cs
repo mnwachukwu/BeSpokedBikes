@@ -1,4 +1,4 @@
-﻿namespace Profisee.BeSpokedBikes.Data
+﻿namespace Profisee.BeSpokedBikes.Data.Entities
 {
     /// <summary>
     /// Represents a discount, containing the discount percentage and the <see cref="Product"/> to be discounted.

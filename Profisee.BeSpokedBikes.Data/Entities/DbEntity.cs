@@ -1,4 +1,4 @@
-﻿namespace Profisee.BeSpokedBikes.Data
+﻿namespace Profisee.BeSpokedBikes.Data.Entities
 {
     /// <summary>
     /// Base object for all database entities.

@@ -1,9 +1,9 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Profisee.BeSpokedBikes.Data
+namespace Profisee.BeSpokedBikes.Data.Entities
 {
     /// <summary>
-    /// Represents the relationship between a <see cref="Data.Sale"/> and a <see cref="Data.Product"/>.
+    /// Represents the relationship between a <see cref="Entities.Sale"/> and a <see cref="Entities.Product"/>.
     /// </summary>
     public class SaleProduct : DbEntity
     {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Profisee.BeSpokedBikes.Data;
+using Profisee.BeSpokedBikes.Data.Entities;
 
 namespace Profisee.BeSpokedBikes.API.Controllers
 {

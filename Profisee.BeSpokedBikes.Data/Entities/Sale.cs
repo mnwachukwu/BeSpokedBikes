@@ -1,7 +1,7 @@
-﻿namespace Profisee.BeSpokedBikes.Data
+﻿namespace Profisee.BeSpokedBikes.Data.Entities
 {
     /// <summary>
-    /// Represents the sale of <see cref="Product"/> to a <see cref="Data.Customer"/> by a <see cref="Data.Salesperson"/>.
+    /// Represents the sale of <see cref="Product"/> to a <see cref="Entities.Customer"/> by a <see cref="Entities.Salesperson"/>.
     /// </summary>
     public class Sale : DbEntity
     {
