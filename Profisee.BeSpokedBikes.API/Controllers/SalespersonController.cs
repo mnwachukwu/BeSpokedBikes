@@ -30,7 +30,8 @@ namespace Profisee.BeSpokedBikes.API.Controllers
         [HttpGet("List")]
         public IEnumerable<Salesperson> List()
         {
-            return [.. _dbContext.Salespeople.Include(s => s.Address)];
+            return [.. _dbContext.Salespeople
+                .Include(s => s.Address)];
         }
     }
 }

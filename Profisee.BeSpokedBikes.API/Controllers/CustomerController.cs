@@ -26,7 +26,8 @@ namespace Profisee.BeSpokedBikes.API.Controllers
         [HttpGet("List")]
         public IEnumerable<Customer> List()
         {
-            return [.. _dbContext.Customers.Include(c => c.Address)];
+            return [.. _dbContext.Customers
+                .Include(c => c.Address)];
         }
     }
 }
