@@ -1,0 +1,126 @@
+/* Page container */
+.main-bg {
+    min-height     : 100vh;
+    padding        : 2rem;
+    align-items    : center;
+    justify-content: center;
+    background     : linear-gradient(135deg, #0F9D58, #7cc4a9);
+    font-family    : "Inter", system-ui, sans-serif;
+}
+
+/* Glassmorphic card */
+.commission-report.main-card {
+    padding      : 1.5rem;
+    border-radius: 18px;
+    background   : rgba(255, 255, 255, 0.15);
+    box-shadow   : 0 25px 45px rgba(0, 0, 0, 0.2);
+    color        : #fff;
+    text-align   : center;
+}
+
+.commission-report {
+    padding-top: 5rem;
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+.commission-report h1 {
+    margin-bottom: 1.5rem;
+    font-size    : 2rem;
+    color        : #fff;
+}
+
+/* Top Performer Callout */
+.top-performer {
+    background   : linear-gradient(135deg, #0F9D58, #0B7F46);
+    color        : #fff;
+    border-radius: 16px;
+    padding      : 1.5rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow   : 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.top-performer .badge {
+    font-size     : 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity       : 0.85;
+    margin-bottom : 0.5rem;
+}
+
+.top-content {
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+    gap            : 2rem;
+}
+
+.top-name {
+    font-size  : 1.4rem;
+    font-weight: 600;
+}
+
+.top-metrics {
+    display: flex;
+    gap    : 2.5rem;
+}
+
+.top-metrics>div {
+    display       : flex;
+    flex-direction: column;
+    align-items   : flex-end;
+}
+
+.top-metrics .label {
+    font-size    : 0.75rem;
+    opacity      : 0.85;
+    margin-bottom: 0.2rem;
+}
+
+dashboard {
+    font-size  : 1.2rem;
+    font-weight: 600;
+}
+
+dashboard.highlight {
+    font-size: 1.35rem;
+}
+
+/* Commission List */
+.commission-list {
+    margin-top    : 1rem;
+    display       : flex;
+    flex-direction: column;
+    gap           : 0.4rem;
+}
+
+.commission-header,
+.commission-row {
+    display        : flex;
+    justify-content: space-between;
+    padding        : 0.7rem 0.9rem;
+    border-radius  : 10px;
+}
+
+.commission-header {
+    font-size  : 0.9rem;
+    font-weight: 600;
+    opacity    : 0.85;
+}
+
+.commission-row {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.commission-row:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.commission-header span,
+.commission-row span {
+    flex      : 1;
+    text-align: left;
+}
+
+.commission-row .name {
+    font-weight: 600;
+}
