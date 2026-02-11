@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Profisee.BeSpokedBikes.Data;
 using Profisee.BeSpokedBikes.Data.Entities;
+using Profisee.BeSpokedBikes.Data.Dtos;
 
 namespace Profisee.BeSpokedBikes.API.Controllers
 {
@@ -33,6 +34,55 @@ namespace Profisee.BeSpokedBikes.API.Controllers
         {
             return [.. _dbContext.Salespeople
                 .Include(s => s.Address)];
+        }
+
+        [HttpPost("Update")]
+        public async Task<UpdateEntityResponse<Salesperson>> Update([FromBody] Salesperson salesperson)
+        {
+            var response = new UpdateEntityResponse<Salesperson>
+            {
+                Success = true
+            };
+
+            if (salesperson != null)
+            {
+                try
+                {
+                    if (_dbContext.Salespeople.Any(i => i.Id == salesperson.Id))
+                    {
+                        _dbContext.Salespeople.Update(salesperson);
+                    }
+                    else
+                    {
+                        _dbContext.Entry(salesperson.Manager).State = EntityState.Unchanged;
+                        _dbContext.Entry(salesperson.Manager?.Address).State = EntityState.Unchanged;
+                        _dbContext.Salespeople.Add(salesperson);
+                    }
+
+                    // handle the address, too
+                    if (salesperson.Address != null)
+                    {
+                        if (_dbContext.Addresses.Any(i => i.Id == salesperson.Address.Id))
+                        {
+                            _dbContext.Addresses.Update(salesperson.Address);
+                        }
+                        else
+                        {
+                            _dbContext.Addresses.Add(salesperson.Address);
+                        }
+                    }
+
+                    await _dbContext.SaveChangesAsync();
+                }
+                catch 
+                {
+                    response.Success = false;
+                }
+
+                response.Entity = response.Success ? _dbContext.Salespeople.Include(sp => sp.Address).FirstOrDefault(i => i.Id == salesperson.Id) : null;
+            }
+
+            return response;
         }
     }
 }

@@ -17,5 +17,7 @@ namespace Profisee.BeSpokedBikes.Data.Entities
         public int Quantity { get; set; }
 
         public double SoldPrice { get; set; }
+
+        public double CommissionCost => SoldPrice * (Product?.CommissionPercentage ?? 0);
     }
 }
