@@ -5,9 +5,11 @@ const AppContext = createContext(null);
 export const AppContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const apiUrl = "https://localhost:44390";
+    const [isManager, setManager] = useState(false);
 
     const login = (salesperson) => {
         setUser(salesperson);
+        setManager(salesperson !== null && salesperson.manager === null);
     };
 
     const logout = () => {
@@ -15,7 +17,7 @@ export const AppContextProvider = ({ children }) => {
     };
 
     return (
-        <AppContext.Provider value={{ user, login, logout, apiUrl }}>
+        <AppContext.Provider value={{ user, login, logout, apiUrl, isManager }}>
             {children}
         </AppContext.Provider>
     );

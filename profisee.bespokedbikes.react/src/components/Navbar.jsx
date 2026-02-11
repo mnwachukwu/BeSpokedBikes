@@ -5,11 +5,11 @@ import "./css/Navbar.css";
 const Navbar = () => {
     const { user, logout } = useAppContext();
     const links = [
-        { label: "Dashboard", href: "/main" },
-        { label: "Salespeople", href: "/salesperson/list" },
-        { label: "Products", href: "/products" },
-        { label: "Customers", href: "/customers" },
-        { label: "Sales", href: "/sales" },
+        { id: 1, label: "Dashboard", href: "/main" },
+        { id: 2, label: "Salespeople", href: "/salesperson/list" },
+        { id: 3, label: "Products", href: "/product/list" },
+        { id: 4, label: "Customers", href: "/customer/list" },
+        { id: 5, label: "Sales", href: "/sale/list" },
     ];
 
     return (
@@ -21,7 +21,7 @@ const Navbar = () => {
 
                 <div className="navbar-links">
                     {links.map((link) => (
-                        <NavLink to={link.href} className="navbar-link">
+                        <NavLink key={link.id} to={link.href} className="navbar-link">
                             {link.label}
                         </NavLink>
                     ))}

@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
+import { useAppContext } from "../context/AppContext";
 import SalespersonListCard from "../components/SalespersonListCard";
-import './css/SalespersonList.css';
 import useError from "../hooks/useError";
 import ErrorToast from "../components/ErrorToast";
 import Navbar from '../components/Navbar';
+import './css/SalespersonList.css';
 
 const SalespeopleListPage = () => {
     const [salespeople, setSalespeople] = useState([]);
     const [loading, setLoading] = useState(true);
     const { error, showError } = useError();
+    const { apiUrl } = useAppContext();
 
     const fetchSalespeople = async () => {
         try {
-            const response = await fetch("https://localhost:44390/Salesperson/List");
+            const response = await fetch(`${apiUrl}/Salesperson/List`);
 
             if (!response.ok) {
                 throw new Error(`Failed to load salespeople (HTTP ${response.status})`);

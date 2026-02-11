@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+import { useAppContext } from "../context/AppContext";
 import "./css/SalespersonListCard.css";
 
 const SalespersonListCard = ({ salesperson }) => {
@@ -11,24 +13,46 @@ const SalespersonListCard = ({ salesperson }) => {
         manager
     } = salesperson;
 
+    const navigate = useNavigate();
+    const { isManager } = useAppContext();
+
+    const handleEdit = () => {
+        navigate("/salesperson/form", {
+            state: { salesperson }
+        });
+    };
+
     return (
         <div className="salesperson-card">
             <div className="card-header">
-                <div className="avatar">
-                    <span>
-                        {firstName?.[0]}
-                        {lastName?.[0]}
-                    </span>
+                <div className="header-left">
+                    <div className="avatar">
+                        <span>
+                            {firstName?.[0]}
+                            {lastName?.[0]}
+                        </span>
+                    </div>
+
+                    <div className="header-text">
+                        <h3>{firstName} {lastName}</h3>
+                        <p className="subtle">
+                            {manager
+                                ? `Reports to ${manager.firstName} ${manager.lastName}`
+                                : "Manager"}
+                        </p>
+                    </div>
                 </div>
 
-                <div className="header-text">
-                    <h3>{firstName} {lastName}</h3>
-                    <p className="subtle">
-                        {manager
-                            ? `Reports to ${manager.firstName} ${manager.lastName}`
-                            : "Manager"}
-                    </p>
-                </div>
+                {/* Edit icon */}
+                {isManager &&
+                    <button
+                        className="edit-btn"
+                        onClick={handleEdit}
+                        title="Edit Salesperson"
+                    >
+                        ✏️
+                    </button>
+                }
             </div>
 
             <div className="card-body">

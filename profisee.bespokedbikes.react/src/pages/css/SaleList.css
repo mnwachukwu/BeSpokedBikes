@@ -1,0 +1,108 @@
+/* Page container */
+.main-bg {
+    min-height     : 100vh;
+    padding-top    : 5rem;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    background     : linear-gradient(135deg, #0F9D58, #7cc4a9);
+    font-family    : "Inter", system-ui, sans-serif;
+}
+
+/* Glassmorphic card */
+.sales-list.main-card {
+    width        : 100%;
+    max-width    : 60%;
+    padding      : 1.5rem;
+    margin       : 2rem;
+    border-radius: 18px;
+    background   : rgba(255, 255, 255, 0.15);
+    box-shadow   : 0 25px 45px rgba(0, 0, 0, 0.2);
+    color        : #fff;
+    text-align   : center;
+}
+
+.main-card h1 {
+    margin-bottom: 0.5rem;
+    font-size    : 2rem;
+}
+
+h2.subtitle {
+    opacity   : 0.80;
+    margin-top: 0px;
+}
+
+/* Summary metrics */
+.sales-summary {
+    display        : flex;
+    gap            : 1.5rem;
+    justify-content: space-between;
+    margin         : 2rem 0;
+    flex-wrap      : wrap;
+}
+
+.summary-box {
+    flex         : 1;
+    min-width    : 180px;
+    padding      : 1.5rem;
+    border-radius: 14px;
+    color        : #fff;
+    text-align   : center;
+    box-shadow   : 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.summary-label {
+    display      : block;
+    font-size    : 0.9rem;
+    opacity      : 0.85;
+    margin-bottom: 0.4rem;
+}
+
+.summary-value {
+    font-size  : 1.8rem;
+    font-weight: 700;
+}
+
+/* Color variants */
+.summary-box.blue {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+}
+
+.summary-box.light-green {
+    background: linear-gradient(135deg, #6ee7b7, #34d399);
+}
+
+.summary-box.dark-green {
+    background: linear-gradient(135deg, #059669, #047857);
+}
+
+/* ---- SALES LIST ---- */
+.sales-list {
+    margin-top: 2rem;
+}
+
+.sales-header,
+.sales-row {
+    display              : grid;
+    grid-template-columns: 0.7fr 1fr 1fr 1.2fr 1.2fr 1fr;
+    gap                  : 1rem;
+    padding              : 0.8rem 1rem;
+    align-items          : center;
+}
+
+.sales-header {
+    font-weight  : 600;
+    opacity      : 0.8;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.sales-row {
+    background   : rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    margin-top   : 0.6rem;
+}
+
+.sales-row:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform : translateY(-1px);
+}
