@@ -1,0 +1,15 @@
+.error-toast {
+    position     : fixed;
+    top          : 1rem;
+    left         : 50%;
+    transform    : translateX(-50%);
+    background   : rgba(255, 0, 0, 0.85);
+    color        : #fff;
+    padding      : 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight  : 600;
+    font-size    : 0.95rem;
+    box-shadow   : 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index      : 9999;
+    transition   : opacity 0.3s ease, transform 0.3s ease;
+}

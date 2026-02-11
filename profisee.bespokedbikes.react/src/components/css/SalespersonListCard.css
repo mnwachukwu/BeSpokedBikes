@@ -1,0 +1,92 @@
+.salesperson-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.18);
+    color: #fff;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.salesperson-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.28);
+}
+
+/* Header */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    text-align: left;
+}
+
+.header-text h3 {
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+.header-text .subtle {
+    margin-top: 0;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* Avatar */
+.avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffffff, #dff5ea);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0F9D58;
+    font-weight: 700;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+/* Body */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.label {
+    font-size: 0.8rem;
+    opacity: 0.75;
+    white-space: nowrap;
+}
+
+.value {
+    font-size: 0.9rem;
+    text-align: right;
+    word-break: break-word;
+}
+
+/* Employment Status styling */
+.value.active {
+    color: #b9fae1;
+    font-weight: 600;
+}
+
+.value.terminated {
+    color: #ffb3b3;
+    font-weight: 600;
+}

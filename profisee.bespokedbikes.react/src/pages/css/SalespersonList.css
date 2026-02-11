@@ -1,0 +1,38 @@
+.salespeople-container {
+    display        : flex;
+    flex-wrap      : wrap;
+    gap            : 1.5rem;
+    justify-content: center;
+    margin-top     : 2rem;
+}
+
+/* Main background */
+.main-bg {
+    min-height     : 100vh;
+    padding-top    : 3rem;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    background     : linear-gradient(135deg, #0F9D58, #7cc4a9);
+    font-family    : "Inter", system-ui, sans-serif;
+}
+
+/* Glassmorphic card */
+.main-card {
+    width        : 100%;
+    max-width    : 80%;
+    padding      : 2.5rem;
+    border-radius: 18px;
+    color        : #fff;
+    text-align   : center;
+}
+
+.main-card h1 {
+    margin-bottom: 0.5rem;
+    font-size    : 2rem;
+}
+
+h2.subtitle {
+    opacity   : 0.80;
+    margin-top: 0px;
+}

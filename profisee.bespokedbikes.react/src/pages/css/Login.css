@@ -1,0 +1,126 @@
+/* Full-page animated gradient background */
+.login-bg {
+    min-height     : 100vh;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    background     : linear-gradient(135deg,
+            #0F9D58,
+            #7cc4a9,
+            #36cc83,
+            #b9fae1);
+    background-size: 400% 400%;
+    animation      : gradientShift 12s ease infinite;
+    font-family    : "Inter", system-ui, sans-serif;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Glassmorphism card */
+.login-card {
+    width                  : 100%;
+    max-width              : 380px;
+    padding                : 2.5rem;
+    border-radius          : 18px;
+    background             : rgba(255, 255, 255, 0.15);
+    box-shadow             : 0 25px 45px rgba(0, 0, 0, 0.2);
+    color                  : #fff;
+    text-align             : center;
+}
+
+.login-card h1 {
+    margin-bottom: 0.25rem;
+    font-size    : 1.9rem;
+}
+
+.subtitle {
+    margin-bottom: 2rem;
+    opacity      : 0.85;
+    font-size    : 0.95rem;
+}
+
+/* Input fields */
+.field input {
+    width        : 100%;
+    padding      : 0.75rem 1rem;
+    margin-bottom: 1.2rem;
+    border-radius: 10px;
+    border       : none;
+    outline      : none;
+    background   : rgba(255, 255, 255, 0.25);
+    color        : #fff;
+    font-size    : 0.95rem;
+}
+
+.field input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.field input:focus {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* Button */
+button {
+    width        : 100%;
+    padding      : 0.8rem;
+    border-radius: 10px;
+    border       : none;
+    font-weight  : 600;
+    font-size    : 1rem;
+    color        : #0F9D58;
+    background   : linear-gradient(135deg, #ffffff, #e6e6ff);
+    cursor       : pointer;
+    transition   : transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+    transform : translateY(-1px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+button:disabled {
+    opacity: 0.7;
+    cursor : not-allowed;
+}
+
+/* Footer */
+.footer {
+    margin-top: 1.5rem;
+    font-size : 0.85rem;
+}
+
+.footer a {
+    color          : rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Image Handling */
+.image-wrapper {
+    width          : 100%;
+    display        : flex;
+    justify-content: center;
+    margin-bottom  : 1.5rem;
+}
+
+.image-wrapper img {
+    max-width : 100%;
+    height    : auto;
+    object-fit: contain;
+}
