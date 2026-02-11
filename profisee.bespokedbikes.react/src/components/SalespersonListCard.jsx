@@ -83,7 +83,7 @@ const SalespersonListCard = ({ salesperson }) => {
                     <span className="label">Employment Status</span>
                     <span className={`value ${terminationDate ? "terminated" : "active"}`}>
                         {terminationDate
-                            ? new Date(terminationDate).toLocaleDateString()
+                            ? `Terminated on ${new Date(terminationDate).toLocaleDateString()}`
                             : "Active"}
                     </span>
                 </div>

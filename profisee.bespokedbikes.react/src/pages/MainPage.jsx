@@ -22,7 +22,7 @@ const MainPage = () => {
     }
 
     return (
-        <div className="main-bg">
+        <div className="main-bg main-page">
             <Navbar />
             <ErrorToast message={error} />
             <div className="login-page main-card">
