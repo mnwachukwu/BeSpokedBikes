@@ -1,23 +1,18 @@
-import "./css/Main.css";
+import { useNavigate } from "react-router-dom";
 import useError from "../hooks/useError";
 import ErrorToast from "../components/ErrorToast";
 import Navbar from '../components/Navbar';
+import "./css/Main.css";
 
 const MainPage = () => {
     const { error, showError } = useError();
-    const navLinks = [
-        { label: "Dashboard", href: "/main" },
-        { label: "Salespeople", href: "/salespeople" },
-        { label: "Products", href: "/products" },
-        { label: "Customers", href: "/customers" },
-        { label: "Sales", href: "/sales" },
-    ];
+    const navigate = useNavigate();
 
     return (
         <div className="main-bg">
-            <Navbar links={navLinks} />
+            <Navbar />
             <ErrorToast message={error} />
-            <div className="main-card">
+            <div className="login-page main-card">
                 <h1>BeSpoked Bikes</h1>
                 <h1 className="subtitle">Operations Dashboard</h1>
 
@@ -25,7 +20,7 @@ const MainPage = () => {
                     {/* Personnel */}
                     <div className="group">
                         <h2>Personnel Operations</h2>
-                        <button onClick={() => console.log("List Salespeople")}>
+                        <button onClick={() => navigate("/salesperson/list")}>
                             List Salespeople
                         </button>
                         <button onClick={() => console.log("Add Salesperson")}>

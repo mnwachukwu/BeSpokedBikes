@@ -1,22 +1,51 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAppContext } from "../context/AppContext";
 import useError from "../hooks/useError";
 import ErrorToast from "../components/ErrorToast";
-import "./css/Login.css"
 import bike from "../assets/Bike.png"
+import "./css/Login.css"
 
 const LoginPage = () => {
     const [username, setUsername] = useState("");
     const [loading, setLoading] = useState(false);
     const { error, showError } = useError();
+    const { login, apiUrl } = useAppContext();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
 
-        // Fake delay — replace with real auth
-        await new Promise((r) => setTimeout(r, 1200));
-        setLoading(false);
-        showError("Failed to log in");
+        try {
+            const response = await fetch(
+                `${apiUrl}/Auth/Login/${encodeURIComponent(username)}`,
+                {
+                    method: "POST"
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("Network error");
+            }
+
+            const result = await response.json();
+
+            if (!result.success) {
+                showError("Invalid username");
+                return;
+            }
+
+            console.log("Logged in salesperson:", result.salesperson);
+
+            login(result.salesperson);
+            navigate("/main");
+        } catch (err) {
+            console.error(err);
+            showError("Unable to reach server. Please try again.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (

@@ -23,14 +23,6 @@ const SalespersonFormPage = ({ salesperson, onSubmit }) => {
         }
     };
 
-    const navLinks = [
-        { label: "Dashboard", href: "/main" },
-        { label: "Salespeople", href: "/salespeople" },
-        { label: "Products", href: "/products" },
-        { label: "Customers", href: "/customers" },
-        { label: "Sales", href: "/sales" },
-    ];
-
     const [salespeople, setSalespeople] = useState([]);
     const [form, setForm] = useState(salesperson ?? emptySalesperson);
     const [loading, setLoading] = useState(true);
@@ -76,7 +68,7 @@ const SalespersonFormPage = ({ salesperson, onSubmit }) => {
 
     return (
         <div className="main-bg">
-            <Navbar links={navLinks} />
+            <Navbar />
             <ErrorToast message={error} />
 
             <div className="main-card form-card">

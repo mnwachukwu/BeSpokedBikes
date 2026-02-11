@@ -18,7 +18,7 @@
 }
 
 /* Glassmorphic card */
-.main-card {
+.salesperson-list.main-card {
     width        : 100%;
     max-width    : 80%;
     padding      : 2.5rem;

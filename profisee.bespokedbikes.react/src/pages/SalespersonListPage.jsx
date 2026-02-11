@@ -9,13 +9,6 @@ const SalespeopleListPage = () => {
     const [salespeople, setSalespeople] = useState([]);
     const [loading, setLoading] = useState(true);
     const { error, showError } = useError();
-    const navLinks = [
-        { label: "Dashboard", href: "/main" },
-        { label: "Salespeople", href: "/salespeople" },
-        { label: "Products", href: "/products" },
-        { label: "Customers", href: "/customers" },
-        { label: "Sales", href: "/sales" },
-    ];
 
     const fetchSalespeople = async () => {
         try {
@@ -40,9 +33,9 @@ const SalespeopleListPage = () => {
 
     return (
         <div className="main-bg">
-            <Navbar links={navLinks} />
+            <Navbar />
             <ErrorToast message={error} />
-            <div className="main-card">
+            <div className="salesperson-list main-card">
                 <h1>The Sales Team</h1>
                 <h2 className="subtitle">Our people are what makes us great</h2>
 
