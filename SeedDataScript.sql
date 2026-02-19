@@ -135,7 +135,7 @@ VALUES
 -- SaleProducts (30 rows)
 -- =======================
 -- Use random a random Sale and Product from Sales and Products
-INSERT INTO SaleProduct (Id, SaleId, ProductId, Quantity, CreatedDate)
+INSERT INTO SaleProducts (Id, SaleId, ProductId, Quantity, CreatedDate)
 VALUES
 (NEWID(), (SELECT TOP 1 Id FROM Sales ORDER BY NEWID()), (SELECT TOP 1 Id FROM Products ORDER BY NEWID()), 2, GETDATE()),
 (NEWID(), (SELECT TOP 1 Id FROM Sales ORDER BY NEWID()), (SELECT TOP 1 Id FROM Products ORDER BY NEWID()), 1, GETDATE()),
@@ -280,7 +280,7 @@ WHERE SalespersonId IS NOT NULL;
 
 UPDATE sp
 SET CreateUserId = s.SalespersonId
-FROM SaleProduct sp
+FROM SaleProducts sp
 JOIN Sales s ON sp.SaleId = s.Id
 WHERE s.SalespersonId IS NOT NULL;
 

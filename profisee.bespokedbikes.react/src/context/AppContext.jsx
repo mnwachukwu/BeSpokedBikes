@@ -4,7 +4,7 @@ const AppContext = createContext(null);
 
 export const AppContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const apiUrl = "https://localhost:44390";
+    const apiUrl = "https://localhost:7214";
     const [isManager, setManager] = useState(false);
 
     const login = (salesperson) => {

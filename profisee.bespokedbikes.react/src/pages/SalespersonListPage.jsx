@@ -36,7 +36,7 @@ const SalespeopleListPage = () => {
     return (
         <div className="main-bg">
             <Navbar />
-            <ErrorToast message={error} />
+            <ErrorToast message={error}/>
             
             <div className="salesperson-list main-card">
                 <h1>The Sales Team</h1>

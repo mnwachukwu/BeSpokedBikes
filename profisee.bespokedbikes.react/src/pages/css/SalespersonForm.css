@@ -66,8 +66,8 @@ select {
 }
 
 select option {
-    color: #000; /* black text for dropdown options */
-    background: #fff; /* optional: white background for clarity */
+    color     : #000;
+    background: #fff;
 }
 
 input::placeholder {

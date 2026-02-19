@@ -19,14 +19,14 @@ namespace Profisee.BeSpokedBikes.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public Sale? Get(string id)
+        public async Task<Sale?> Get(string id)
         {
-            return _dbContext.Sales
+            return await _dbContext.Sales
                 .Include(s => s.Customer)
                 .Include(s => s.Salesperson)
                 .Include(s => s.SaleProducts)
                     .ThenInclude(sp => sp.Product)
-                .FirstOrDefault(i => i.Id == id);
+                .FirstOrDefaultAsync(i => i.Id == id);
         }
 
         [HttpGet("List")]
